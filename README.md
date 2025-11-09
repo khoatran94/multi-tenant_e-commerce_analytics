@@ -1,7 +1,7 @@
 # multi-tenant_e-commerce_analytics
 
 Prerequisites: Ubuntu, Docker, Python  
-Note: for the ease of reproducibility, I push some files that should be kept as secrets in production env (postgres credentials, dbt profiles.yml, my Google Drive Service Account Key, etc.)
+Note: for the ease of reproducibility, I push some files that should be kept as secrets in production env (postgres credentials, dbt profiles.yml, etc.)
 
 ## 0 Clone the repo:
 ```sh
@@ -30,7 +30,8 @@ abctl local install
 I'm so sorry, it seems there is no export/import option for transferring the set up connections in a local airbyte instance to another (or maybe I am not aware of) 
 Please have a look at the folder `📁 airbyte_workspace/` where I place 3 .json files downloaded from local airbyte API
 Basically:
-- the source is Google Drive connector (so sorry again, I couldn't use the File Connector with Local Filesystem option so I hostes the files on my Google Drive)
+- the source is Google Drive connector (so sorry again, I couldn't use the File Connector with Local Filesystem option so I hostes the files on my Google Drive, and I cannot push the service account credentials here)
+
 - the destination is the containerized PostgreSQL
 - 3 connections, each with 9 streams (9 files from the Kaggle's Olist dataset) ingested to the 3 schemas in Step 1)
 Open: http://localhost:8000 and log in with credentials from
