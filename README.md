@@ -1,6 +1,8 @@
 # multi-tenant_e-commerce_analytics
 
 Prerequisites: Ubuntu, Docker, Python
+Note: for the ease of reproducibility, I push some files that should be kept as secrets in production env (postgres credentials, dbt profiles.yml, etc)
+
 ## 0 Clone the repo:
 ```sh
 git clone https://github.com/khoatran94/multi-tenant_e-commerce_analytics.git
