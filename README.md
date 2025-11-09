@@ -15,13 +15,13 @@ docker run -d --name postgres \
 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=ecommerce \
 -p 5432:5432 postgres:15
 docker cp raw_schema.sql postgres:/raw_schema.sql
-docker exec postgres psql -U user -d ecommerce -f /raw_schema_sql
+docker exec postgres psql -U user -d ecommerce -f /raw_schema.sql
 ```
 
 ## 2 Install airbyte locally
 ```sh
 curl -LsfS https://get.airbyte.com | bash -
-abvtl local install
+abctl local install
 ```
 
 ## 3 Set up the connections:
@@ -31,6 +31,11 @@ Basically:
 - the source is Google Drive connector (so sorry again, I couldn't use the File Connector with Local Filesystem option so I hostes the files on my Google Drive)
 - the destination is the containerized PostgreSQL
 - 3 connections, each with 9 streams (9 files from the Kaggle's Olist dataset) ingested to the 3 schemas in Step 1)
+Open: http://localhost:8000 and log in with credentials from
+```sh
+abctl local credentials
+```
+to manually create the connections
 
 ## 4 Install dbt and prefect:
 ### 4.1 Create a venv:
@@ -44,10 +49,13 @@ pip install --upgrade pip
 pip install dbt-postgres prefect
 ```
 ## 5 Create Staging/Intermediate/Analytics Layer:
+
 ```sh
 mkdir -p ~/.dbt
 cp profiles.yml ~/.dbt/profiles.yml
 cd ecommerce_analytics/
+dbt debug
+# Should say: "All checks passed!"
 ```
 
 ### 5.1 Staging Layer:
