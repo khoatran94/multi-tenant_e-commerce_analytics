@@ -1,0 +1,6 @@
+-- Schemas
+CREATE SCHEMA IF NOT EXISTS raw_amazon;
+CREATE SCHEMA IF NOT EXISTS raw_shopify;
+CREATE SCHEMA IF NOT EXISTS raw_etsy;
+
+

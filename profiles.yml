@@ -1,0 +1,12 @@
+ecommerce_analytics:
+  outputs:
+    dev:
+      dbname: ecommerce
+      host: localhost
+      pass: password
+      schema: tenant
+      port: 5432
+      threads: 2
+      type: postgres
+      user: user
+  target: dev

@@ -1,0 +1,31 @@
+version: 2
+sources:
+  - name: raw_amazon
+    database: ecommerce
+    schema: raw_amazon
+    tables:
+      - name: customers
+      - name: orders
+      - name: products
+      - name: order_reviews
+      - name: order_items
+      
+  - name: raw_etsy
+    database: ecommerce
+    schema: raw_etsy
+    tables:
+      - name: customers
+      - name: orders
+      - name: products
+      - name: order_reviews
+      - name: order_items
+      
+  - name: raw_shopify
+    database: ecommerce
+    schema: raw_shopify
+    tables:
+      - name: customers
+      - name: orders
+      - name: products
+      - name: order_reviews   
+      - name: order_items   
