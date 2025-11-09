@@ -33,7 +33,7 @@ Basically:
 - 3 connections, each with 9 streams (9 files from the Kaggle's Olist dataset) ingested to the 3 schemas in Step 1)
 
 ## 4 Install dbt and prefect:
-### 4.1 Create an venv:
+### 4.1 Create a venv:
 ```sh
 python3 -m venv elt-env
 source elt-env/bin/activate
