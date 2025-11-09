@@ -28,7 +28,7 @@ abctl local install
 
 ## 3 Set up the connections:
 I'm so sorry, it seems there is no export/import option for transferring the set up connections in a local airbyte instance to another (or maybe I am not aware of) 
-Please have a look at the folder airbyte_workspace/ where I place 3 .json files downloaded from local airbyte API
+Please have a look at the folder **Folder:** airbyte_workspace/ where I place 3 .json files downloaded from local airbyte API
 Basically:
 - the source is Google Drive connector (so sorry again, I couldn't use the File Connector with Local Filesystem option so I hostes the files on my Google Drive)
 - the destination is the containerized PostgreSQL
