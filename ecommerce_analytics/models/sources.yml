@@ -9,6 +9,7 @@ sources:
       - name: products
       - name: order_reviews
       - name: order_items
+      - name: product_category_name_translation
       
   - name: raw_etsy
     database: ecommerce
@@ -19,6 +20,7 @@ sources:
       - name: products
       - name: order_reviews
       - name: order_items
+      - name: product_category_name_translation
       
   - name: raw_shopify
     database: ecommerce
@@ -29,3 +31,4 @@ sources:
       - name: products
       - name: order_reviews   
       - name: order_items   
+      - name: product_category_name_translation
