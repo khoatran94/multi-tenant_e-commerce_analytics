@@ -47,9 +47,14 @@ SELECT
        ) as total_orders,
   COALESCE(
     SUM(CASE 
-           WHEN o.order_status = 'delivered' THEN oi.item_price + oi.freight_cost 
+           WHEN o.order_status = 'delivered' THEN oi.item_price 
         END),
-     0 ) as total_spent
+     0 ) as total_item_price,
+  COALESCE(
+    SUM(CASE 
+           WHEN o.order_status = 'delivered' THEN oi.freight_cost 
+        END),
+     0 ) as total_freight_cost
 FROM {{ ref('stg_customers') }} c
 JOIN {{ ref('stg_orders') }} o ON c.customer_id = o.customer_id
 LEFT JOIN {{ ref('stg_order_items') }} oi ON o.order_id = oi.order_id

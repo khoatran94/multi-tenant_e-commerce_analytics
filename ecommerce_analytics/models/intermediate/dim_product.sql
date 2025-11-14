@@ -41,14 +41,17 @@ SELECT
   COUNT(DISTINCT CASE 
                    WHEN o.order_status = 'delivered' THEN oi.order_id 
                  END) AS total_orders,
+  COUNT(CASE 
+            WHEN o.order_status = 'delivered' THEN oi.order_item_seq 
+        END) AS total_units_sold,
   COALESCE(SUM(CASE 
   		  WHEN o.order_status = 'delivered' THEN oi.item_price 
   		END), 
-  	   0)     AS total_revenue,
+  	   0)     AS total_item_price,
   COALESCE(SUM(CASE 
   		  WHEN o.order_status = 'delivered' THEN oi.freight_cost 
   	       END), 
-  	   0)   AS total_freight
+  	   0)   AS total_freight_cost
 
 FROM product_with_english p
 LEFT JOIN {{ ref('stg_order_items') }} oi ON p.product_id = oi.product_id
