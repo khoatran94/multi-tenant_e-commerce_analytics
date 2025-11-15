@@ -49,7 +49,7 @@ source elt-env/bin/activate
 ### 4.2 Install dbt and prefect:
 ```sh
 pip install --upgrade pip
-pip install dbt-postgres prefect
+pip install dbt-postgres prefect "prefect[dbt]"
 ```
 ## 5 Create Staging/Intermediate/Analytics Layer:
 
