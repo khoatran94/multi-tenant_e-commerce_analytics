@@ -109,7 +109,7 @@ username: admin
 password: admin
 ```
 ### 6.3 Import dashboards:
-After login, go to **Dashboards** → **Import dashboards** and import the ```.zip``` files from the folder: in the folder `📁 superset_dashboards/`
+After login, go to **Dashboards** → **Import dashboards** and import the ```.zip``` files from the folder `📁 superset_dashboards/`
 
 
 
