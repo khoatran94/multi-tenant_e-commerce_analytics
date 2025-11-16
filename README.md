@@ -61,25 +61,54 @@ dbt debug
 # Should say: "All checks passed!"
 ```
 
-### 5.1 Staging Layer:
+### 5.1 Staging Layer (Bronze):
 ```sh
 dbt run --select staging --vars "tenant_id: amazon"
 dbt run --select staging --vars "tenant_id: etsy"
 dbt run --select staging --vars "tenant_id: shopify"
 ```
-### 5.2 Intermediate Layer (on going):
+### 5.2 Intermediate Layer (Silver):
 ```sh
 dbt run --select intermediate --vars "tenant_id: amazon"
 dbt run --select intermediate --vars "tenant_id: etsy"
 dbt run --select intermediate --vars "tenant_id: shopify"
 ```
+### 5.3 Analytics Layer (Gold):
 
+```sh
+dbt run --select analytics --vars "tenant_id: amazon"
+dbt run --select analytics --vars "tenant_id: etsy"
+dbt run --select analytics --vars "tenant_id: shopify"
+```
 
+Or, the scheduling of dbt runs can be done with **prefect**:
+### 5.4 Prefect Flow register and Flow run execution:
+```sh
+python flows/dbt_multi_tenant_refresh.py &
+prefect deployment run 'Multi-Tenant dbt Run/multi_tenant_deployment'
+```
+Note: we must keep the python script running with & so that the created worker can pick up the flow run created by **prefect deployment run**
+Another way is to run the python script, close it, execute the **prefect deployment run** and run the python script again
 
+## 6 Superset:
 
+### 6.1 Superset quickstart:
+```sh
+cd ~
+git clone https://github.com/apache/superset
+cd superset
+git checkout tags/5.0.0
+docker compose -f docker-compose-image-tag.yml up
+```
+### 6.2 Login:
 
-
-
+Log in with the default created account on http://localhost:8088:
+```sh
+username: admin
+password: admin
+```
+### 6.3 Import dashboards:
+After login, on the **Dashboards" tab, click "Import dashboard" and use the .zip files in the folder `📁 superset_dashboards/`
 
 
 
