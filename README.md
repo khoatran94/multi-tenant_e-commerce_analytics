@@ -108,7 +108,7 @@ username: admin
 password: admin
 ```
 ### 6.3 Import dashboards:
-After login, on the **Dashboards" tab, click "Import dashboard" and use the .zip files in the folder `📁 superset_dashboards/`
+After login, on the **Dashboards** tab, click **Import dashboard** and use the .zip files in the folder `📁 superset_dashboards/`
 
 
 
