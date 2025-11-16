@@ -87,8 +87,9 @@ Or, the scheduling of dbt runs can be done with **prefect**:
 python flows/dbt_multi_tenant_refresh.py &
 prefect deployment run 'Multi-Tenant dbt Run/multi_tenant_deployment'
 ```
-Note: we must keep the python script running with & so that the created worker can pick up the flow run created by **prefect deployment run**
-Another way is to run the python script, close it, execute the **prefect deployment run** and run the python script again
+Note: 
+- We must keep the python script running with ```&``` so that the created worker can pick up the flow run created by ```prefect deployment run```
+- Another way is to run the python script, close it, execute the ```prefect deployment run``` and run the python script again
 
 ## 6 Superset:
 
@@ -108,7 +109,7 @@ username: admin
 password: admin
 ```
 ### 6.3 Import dashboards:
-After login, on the **Dashboards** tab, click **Import dashboard** and use the .zip files in the folder `📁 superset_dashboards/`
+After login, go to **Dashboards** → **Import dashboards** and import the ```.zip``` files from the folder: in the folder `📁 superset_dashboards/`
 
 
 
